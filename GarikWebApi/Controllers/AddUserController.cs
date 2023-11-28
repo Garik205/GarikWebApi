@@ -9,24 +9,15 @@ namespace GarikWebApi.Controllers
     
     public class AddUserController : ControllerBase
     {
-        ApplicationContext _db;
+        ApplicationContext db;
 
         public AddUserController(ApplicationContext context)
         {
-            context = _db;
+            context = db;
         }
 
         [HttpPost] // Запрос для получения данных из тела и добавление в бд
-        public async Task<ActionResult<User>> Post(User user)
-        {
-            if (user == null)
-            {
-                return BadRequest();
-            }
-            _db.Users.Add(user);
-            await _db.SaveChangesAsync();
-            return Ok(user);
-        }
+        public async 
         
     }
 }

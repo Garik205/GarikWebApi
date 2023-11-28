@@ -9,14 +9,11 @@ namespace DataBase
         // = null!(избежание ошибок), конструктор базового класса DbContext гарантирует, что данное свойство не будет хранить null
         public DbSet<User> Users { get; set; } = null!;
         
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) // Конструктор для предачи натсройки контекста данных 
-        {
-            Database.EnsureCreated();  // Создание бд происходит точно, так как её создание указано явно
-        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=DBuser.db"); // передаётся строка подключения, в которой есть параметр Data Source(указывает на имя бд)
+            Database.EnsureCreated();  // Создание бд происходит точно, так как её создание указано явно
         }
     }
 }
