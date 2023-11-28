@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace GarikWebApi.Controllers
 {
-    [ApiController]
+    [ApiController]//bhjhjgvjgvh
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
