@@ -1,3 +1,6 @@
+using DataBase;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlite("Data Source=DBuser.db"));
 
 app.UseHttpsRedirection();
 
