@@ -4,8 +4,8 @@ namespace DataBase
     public class User
     {
         public int id {  get; set; }
-        public string firstName { get; set; } = null!;
+        public string firstName { get; set; } = null!; //asdasd
         public string email { get; set; } = null!;
-        public string password { get; set; } = null!;
+        public string password { get; set; } = null!; // апаап
     }
 }
