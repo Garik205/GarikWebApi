@@ -1,6 +1,5 @@
 ﻿// класс, унаследованный от Microsoft.EntityFrameworkCore.DbContext, для взаимодействия с базой данных через Entity Framework Core
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace DataBase
 {
