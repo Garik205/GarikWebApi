@@ -38,7 +38,7 @@ namespace GarikWebApi.Controllers
 
 
         [HttpGet("{id}")] // Запрос для получения данных из бд по параметру id
-        public async Task<ActionResult<User>> Get(int id)
+        public async Task<ActionResult<User>> Get(Guid id)
         {
             var user = await _db.Users.FirstOrDefaultAsync(x => x.id == id);
 
@@ -69,13 +69,12 @@ namespace GarikWebApi.Controllers
         }
 
         [HttpDelete("{id}")] // Запрос для удаление пользователя из бд
-        public async Task<ActionResult<User>> Delete(int id)
+        public async Task<ActionResult<User>> Delete(Guid id)
         {
             var user = _db.Users.FirstOrDefault(x => x.id == id);
-            if(user == null)
-            {
+            if(user == null)            
                 return NotFound();
-            }
+            
             _db.Users.Remove(user);
             await _db.SaveChangesAsync();
             return Ok(user);

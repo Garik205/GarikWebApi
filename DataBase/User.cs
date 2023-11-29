@@ -3,7 +3,7 @@ namespace DataBase
 {
     public class User
     {
-        public int id {  get; set; }
+        public Guid id {  get; set; }
         public string firstName { get; set; } = null!; 
         public string email { get; set; } = null!;
         public string password { get; set; } = null!; 
