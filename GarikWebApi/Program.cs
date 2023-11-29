@@ -1,11 +1,18 @@
+using DataBase;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<ApplicationContext>(opts => opts.UseSqlite("Data Source=DBuser.db"), ServiceLifetime.Transient); // Метод расширения для регистрации нашего класса ApplicationContext в контейнере IOC
+
 
 //builder.Services.AddScoped
 //builder.Services.AddTransient
