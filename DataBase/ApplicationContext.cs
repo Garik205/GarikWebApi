@@ -7,10 +7,10 @@ namespace DataBase
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) 
         {
-            Database.EnsureCreated(); 
+            //Database.EnsureCreated();
         } // конструктор для предачи дополнительных параметров в базовый класс DbContext
 
-        // квойство Users предстовляет таблицу, в которой будут храниться объекты User
+        // Сущность Users предстовляет таблицу, в которой будут храниться объекты User
         // = null!(избежание ошибок), конструктор базового класса DbContext гарантирует, что данное свойство не будет хранить null
         public DbSet<User> Users { get; set; } = null!;
     }
