@@ -1,11 +1,13 @@
 ﻿// Главная сущность
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DataBase
 {
     public class User
     {
-        public Guid id {  get; set; }
+        //public Guid UserId = Guid.NewGuid();
+        public Guid id { get { return Guid.NewGuid(); } set { } }
         [Required]
         public string firstName { get; set; } = null!;
         [Required]

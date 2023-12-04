@@ -23,7 +23,7 @@ namespace DataBase.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("Userid")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("infoOrder")
@@ -32,7 +32,7 @@ namespace DataBase.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("Userid");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -68,7 +68,9 @@ namespace DataBase.Migrations
                 {
                     b.HasOne("DataBase.User", "User")
                         .WithMany()
-                        .HasForeignKey("Userid");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
