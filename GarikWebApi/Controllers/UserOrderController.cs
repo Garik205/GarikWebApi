@@ -26,6 +26,7 @@ namespace GarikWebApi.Controllers
             {
                 BadRequest();
             }
+
             _db.Orders.Add(order);
             await _db.SaveChangesAsync();
             return Ok(order);

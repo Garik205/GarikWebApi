@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DataBase;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using DataBase.Models;
+using System.Reflection.Metadata.Ecma335;
 
 
 namespace GarikWebApi.Controllers
@@ -11,10 +14,12 @@ namespace GarikWebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly ApplicationContext _db;
+        private readonly IMapper _mapper;
 
-        public UserController(ApplicationContext context)
+        public UserController(ApplicationContext context, IMapper mapper)
         {
             _db = context;
+            _mapper = mapper; // передача в конструктор маппера, для того чтобы можно было модифицировать, преобразовывать entity в классе модели 
         }
 
         [HttpPost] // Запрос для получения данных из тела и добавление в бд
@@ -24,7 +29,7 @@ namespace GarikWebApi.Controllers
             {
                 return BadRequest();
             }
-
+            
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
             return Ok(user);
@@ -42,12 +47,13 @@ namespace GarikWebApi.Controllers
         public async Task<ActionResult<User>> Get(Guid id)
         {
             var user = await _db.Users.FirstOrDefaultAsync(x => x.id == id);
+            
 
             if (user == null)
             {
                 return BadRequest();
             }
-
+            
             return user;
         }
 

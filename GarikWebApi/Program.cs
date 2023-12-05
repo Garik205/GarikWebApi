@@ -1,5 +1,6 @@
 using DataBase;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationContext>(opts => opts.UseSqlite("Data Source=DBuser.db"), ServiceLifetime.Transient); // Метод расширения для регистрации нашего класса ApplicationContext в контейнере IOC
 
+builder.Services.AddAutoMapper(typeof(Program).Assembly); // Добовляем AutoMapper в DI контейнер
 
 //builder.Services.AddScoped
 //builder.Services.AddTransient

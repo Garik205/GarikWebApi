@@ -7,7 +7,6 @@ namespace DataBase
 {
     public class Order
     {
-        //public Guid IdOrder = Guid.NewGuid();
         public Guid OrderId { get; set; } // Номер заказа
         
         [Required(ErrorMessage ="Укажите информацию о заказе!")]

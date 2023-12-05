@@ -6,7 +6,6 @@ namespace DataBase
 {
     public class User
     {
-        //public Guid UserId = Guid.NewGuid();
         public Guid id { get; set; }
         
         [Required(ErrorMessage ="Укажите ваше имя!")]
@@ -16,7 +15,5 @@ namespace DataBase
         [Required(ErrorMessage ="Укажите пароль!")]
         public string password { get; set; } = null!; 
         public string gender { get; set; } = null!;
-
-        
     }
 }
