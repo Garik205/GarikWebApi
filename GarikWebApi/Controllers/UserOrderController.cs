@@ -1,8 +1,5 @@
 ﻿using DataBase;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata.Ecma335;
 
 namespace GarikWebApi.Controllers
 {
@@ -37,9 +34,8 @@ namespace GarikWebApi.Controllers
         [HttpGet("{id}")] // Запрос на вывод заказов прикрепленных к пользователю
         public async Task<ActionResult<Order>> Get(Guid id)
         {
-            var childData = _db.Orders.Where(c => c.UserId == id).ToList();
-            
-            return Ok(childData);
+            var order = _db.Orders.Where(c => c.UserId == id).ToList();
+            return Ok(order);
 
         }
     }

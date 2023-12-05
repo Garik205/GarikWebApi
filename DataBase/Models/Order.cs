@@ -10,7 +10,7 @@ namespace DataBase
         //public Guid IdOrder = Guid.NewGuid();
         public Guid OrderId { get; set; } // Номер заказа
         
-        [Required]
+        [Required(ErrorMessage ="Укажите информацию о заказе!")]
         public string infoOrder { get; set; } = null!; // Информация о заказе
 
         [ForeignKey("User")] // Явное указание, что это внешний ключ
