@@ -24,6 +24,7 @@ namespace GarikWebApi.Controllers
             {
                 return BadRequest();
             }
+
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
             return Ok(user);
@@ -44,7 +45,7 @@ namespace GarikWebApi.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
             return user;

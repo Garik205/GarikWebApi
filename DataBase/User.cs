@@ -7,7 +7,7 @@ namespace DataBase
     public class User
     {
         //public Guid UserId = Guid.NewGuid();
-        public Guid id { get { return Guid.NewGuid(); } set { } }
+        public Guid id { get; set; }
         [Required]
         public string firstName { get; set; } = null!;
         [Required]
@@ -15,5 +15,7 @@ namespace DataBase
         [Required]
         public string password { get; set; } = null!; 
         public string gender { get; set; } = null!;
+
+        
     }
 }
