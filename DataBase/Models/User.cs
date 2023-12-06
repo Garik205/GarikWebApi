@@ -1,5 +1,4 @@
 ﻿// Главная сущность
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace DataBase
