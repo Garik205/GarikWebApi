@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GarikWebApi", "GarikWebApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBase", "DataBase\DataBase.csproj", "{AB016C48-ABFF-4123-A63A-8C84DAEAFCA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot", "Bot\Bot.csproj", "{F43B53C5-3CB4-46AF-984A-41A33A10FBDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{AB016C48-ABFF-4123-A63A-8C84DAEAFCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB016C48-ABFF-4123-A63A-8C84DAEAFCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB016C48-ABFF-4123-A63A-8C84DAEAFCA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43B53C5-3CB4-46AF-984A-41A33A10FBDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43B53C5-3CB4-46AF-984A-41A33A10FBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43B53C5-3CB4-46AF-984A-41A33A10FBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43B53C5-3CB4-46AF-984A-41A33A10FBDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
