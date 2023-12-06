@@ -7,7 +7,8 @@ namespace DataBase.Models.MupperProfile
     {
         public MappingProfile() 
         {
-            CreateMap<AddUserModel, User>(); // задаем маппинг из AddUserModel в User.  ReverseMap() - работа в обоих направлениях
+            CreateMap<AddUserModel, User>().ReverseMap(); // задаем маппинг из AddUserModel в User.  ReverseMap() - работа в обоих направлениях
+            CreateMap<AddOrderForUser, Order>().ReverseMap(); // Для работы с заказами
         }
     }
 }

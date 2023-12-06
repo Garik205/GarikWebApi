@@ -3,7 +3,7 @@ using DataBase;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using DataBase.Models;
-using System.Reflection.Metadata.Ecma335;
+
 
 
 namespace GarikWebApi.Controllers
@@ -23,13 +23,15 @@ namespace GarikWebApi.Controllers
         }
 
         [HttpPost] // Запрос для получения данных из тела и добавление в бд
-        public async Task<ActionResult<User>> Post(User user)
+        public async Task<ActionResult<AddUserModel>> Post(AddUserModel addUserModel)
         {
-            if (user == null)
+            if (addUserModel == null)
             {
                 return BadRequest();
             }
             
+            User user = _mapper.Map<User>(addUserModel);
+
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
             return Ok(user);

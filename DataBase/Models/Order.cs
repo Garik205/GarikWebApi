@@ -15,7 +15,5 @@ namespace DataBase
         [ForeignKey("User")] // Явное указание, что это внешний ключ
         public Guid UserId { get; set; } // внешний ключ
         //public User? User { get; set; } // навигацонное свойство
-
-        
     }
 }

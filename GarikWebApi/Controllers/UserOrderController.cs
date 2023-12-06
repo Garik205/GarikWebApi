@@ -1,4 +1,6 @@
-﻿using DataBase;
+﻿using AutoMapper;
+using DataBase;
+using DataBase.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GarikWebApi.Controllers
@@ -8,24 +10,23 @@ namespace GarikWebApi.Controllers
     public class UserOrderController : ControllerBase
     {
         private readonly ApplicationContext _db;
+        private readonly IMapper _mapper;
 
-        public UserOrderController(ApplicationContext context)
+        public UserOrderController(ApplicationContext context, IMapper mapper)
         {
             _db = context;
+            _mapper = mapper;
         }
 
         [HttpPost] // Запрос на добавление заказа
-        public async Task<ActionResult<Order>> Post(Order order)
+        public async Task<ActionResult<AddOrderForUser>> Post(AddOrderForUser addOrderForUser)
         {
-            if (order == null)
+            if (addOrderForUser == null)
             {
                 return BadRequest();
             }
 
-            if (order.UserId == order.OrderId)
-            {
-                BadRequest();
-            }
+            var order = _mapper.Map<Order>(addOrderForUser);
 
             _db.Orders.Add(order);
             await _db.SaveChangesAsync();
