@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBase.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20231204165807_CreateInitial")]
-    partial class CreateInitial
+    [Migration("20231207143053_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,8 +35,6 @@ namespace DataBase.Migrations
 
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Orders");
                 });
 
@@ -45,6 +43,9 @@ namespace DataBase.Migrations
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("IdChatTeg")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -65,17 +66,6 @@ namespace DataBase.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("DataBase.Order", b =>
-                {
-                    b.HasOne("DataBase.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

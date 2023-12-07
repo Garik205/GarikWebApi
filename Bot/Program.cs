@@ -2,7 +2,6 @@
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types.Enums;
-using Bot.PushNotification;
 
 
 namespace Bot
@@ -38,12 +37,13 @@ namespace Bot
             // ErrorHandler - обработчик ошибок для Bot API
 
             var me = await _botClient.GetMeAsync(); // поле для хранения информации о моём боте
+            
             //var chatId = e.Message.Chat.Id.ToString(); // 
 
             Console.WriteLine($"{me.FirstName} мой бот запущен ");
 
-            NotificationUser.Push();
-            
+            _botClient?.SendTextMessageAsync(chatId: 997805424, text: "Hello world");
+
             await Task.Delay(-1);
 
             
