@@ -3,14 +3,13 @@ using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types;
 using DataBase;
+using GarikWebApi.RequestForBot;
 
 namespace Bot.Handlers
 {
     public class HandlersForBot
     {
-
-        private ApplicationContext? _db;
-
+        
         protected static Task ErrorHandler(ITelegramBotClient telegramBotClient, Exception error, CancellationToken cancellationToken)
         {
             var ErrorMessage = error switch  // поле для хранения кода ошибки и её сообщение
@@ -25,19 +24,18 @@ namespace Bot.Handlers
 
         protected static async Task UpdateHandler(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            
+           //AddId addId = new AddId();
+
             try // обработчик ошибок, чтобы бот не лёг в случае ошибок
             {
                 switch (update.Type) // для обработки Update
                 {
                     case UpdateType.Message:
                     {
-                            int a = (int)update.Message.Chat.Id;
-                            AddId.GetId(a);
                         Console.WriteLine("Пришло новое сообщение.");
-                        Console.WriteLine($"User: {(update.Message)?.Chat.LastName}, ID: {(update.Message)?.Chat.Id}");
-                            
-                            
+                        Console.WriteLine($"User: {(update.Message)?.Chat.FirstName}, ID: {(update.Message)?.Chat.Id}");
+                        botClient?.SendTextMessageAsync(chatId: update.Message.Chat.Id, text: "Ты написал мне сообщение? А зря! Настрой меня сначала по нормальному... а потом и поговорим!");
+                        AddId.GetId((int)update.Message.Chat.Id);
                         return;
                     }
                 }

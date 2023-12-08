@@ -37,12 +37,10 @@ namespace Bot
             // ErrorHandler - обработчик ошибок для Bot API
 
             var me = await _botClient.GetMeAsync(); // поле для хранения информации о моём боте
-            
-            //var chatId = e.Message.Chat.Id.ToString(); // 
 
             Console.WriteLine($"{me.FirstName} мой бот запущен ");
 
-            _botClient?.SendTextMessageAsync(chatId: 997805424, text: "Hello world");
+            _botClient?.SendTextMessageAsync(chatId: 997805424, text: "Привет!) Ты меня запустил, но я ещё ничего не умею...");
 
             await Task.Delay(-1);
 
