@@ -1,4 +1,5 @@
 ﻿using Bot.Handlers;
+using DataBase;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types.Enums;
@@ -8,6 +9,8 @@ namespace Bot
 {
     class Program : HandlersForBot
     {
+        
+
         private static ITelegramBotClient? _botClient; // Клиент для работы с Telegram Bot Api (Позволяет отправлять сообщения, управлять ботом, подписываться на обновления и прочее)
 
         private static ReceiverOptions? _receiverOptions; // Объект с настройками работы бота. Позволяет указывать какие типы Update мы будем получать, Timeout бота и прочее
@@ -27,7 +30,6 @@ namespace Bot
                 },
                 ThrowPendingUpdates = true, // параметр, который отвечает за обработку полученных сообщений во время нахожения бота в offline режиме. True - не надо обрабатывать, False - надо обрабатывать.
             };
-
             
 
             using var cts = new CancellationTokenSource();
